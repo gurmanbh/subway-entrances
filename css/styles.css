@@ -1,0 +1,24 @@
+*{
+	-web-kit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: Helvetica;
+	font-size: 18px;
+}
+
+h1 {
+	color: #D44636;
+	display: inline-block;
+	font-size: 18px;
+}
+
+
+p {
+	color: black;
+	padding-bottom: 15px;
+	margin-top: -5px;
+}
+
+.row {
+	margin-left: 10px;
+}
