@@ -88,8 +88,6 @@
 		$('#bakebutton').on('click',function(){
 			selected_lines=[];
 
-			cook();
-
 			//create a list of selected lines
 
 			for (var check in subwaylinestatus){
@@ -98,21 +96,31 @@
 				}
 			}
 
-			console.log(selected_lines);
+			cook();
+
+
 
 		});
 
 		function cook(){
 
-		var filtered_entrances = subwayStations.filter (function(subwayStation){
-			return ((_.contains(subwayStation.linelist, '2')) && (
-				_.contains(subwayStation.linelist, '3'))) || 
-				((_.contains(subwayStation.linelist, 'A')) && 
-				(_.contains(subwayStation.linelist, 'C')));
-			// return subwayStation.lineList.indexOf('2') != -1;
-		});
+			$('#canvas').html('')
 
-		filtered_entrances.forEach(function(subwayStation){
+			var filtered_entrances=subwayStations.filter (function(subwayStation){
+					return _.contains(subwayStation.linelist, selected_lines[0]);
+				});
+
+			for (var i=1; i < selected_lines.length; i++){
+				filtered_entrances = filtered_entrances.filter (function(subwayStation){
+					return _.contains(subwayStation.linelist, selected_lines[i]);
+				});
+			}
+
+			if (filtered_entrances.length==0){
+				$('#canvas').html('<div class = "none"> A station of that calibre does not exist in New York City. </div>');
+			}
+
+			filtered_entrances.forEach(function(subwayStation){
 			$('#canvas').append("<div class = 'row'>" + "<h1>"+ subwayStation.name +'</h1>' + '<p>'
 				+subwayStation.linelist.join(' - ')+'</p>'+'</div>');
 			// $('#canvas').append("<div class = 'row'>" + "<h1>"+ subwayStation.name +'</h1>' + '<p>'+ 
@@ -122,10 +130,12 @@
 			
 		});
 
-		console.log(subwayStations.length);
-		console.log (filtered_entrances.length);
+		// console.log(subwayStations.length);
+		// console.log (filtered_entrances.length);
 
 		}
+
+
 	});
 
 
