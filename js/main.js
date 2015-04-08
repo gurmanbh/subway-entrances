@@ -1,5 +1,29 @@
 (function(){
-
+	var subwaylinestatus = {
+		"A":'inactive',
+		"C":'inactive',
+		"E":'inactive',
+		"B":'inactive',
+		"D":'inactive',
+		"F":'inactive',
+		"M":'inactive',
+		"G":'inactive',
+		"L":'inactive',
+		"J":'inactive',
+		"Z":'inactive',
+		"N":'inactive',
+		"R":'inactive',
+		"Q":'inactive',
+		"1":'inactive',
+		"2":'inactive',
+		"3":'inactive',
+		"4":'inactive',
+		"5":'inactive',
+		"6":'inactive',
+		"7":'inactive',
+		"S":'inactive',
+		'totalActive':0
+	}
 	/*
 
 	url,name,line
@@ -39,9 +63,39 @@
 			
 		});
 
+		//click listener for the buttons
+
+		$('.button').on('click',function(){
+			var which_button = $(this).attr('data-which');
+			if ($(this).hasClass('active')){
+				$(this).removeClass('active');
+				subwaylinestatus.totalActive--;
+				subwaylinestatus[which_button]='inactive';
+			}
+			else {
+				$(this).addClass('active');
+				subwaylinestatus.totalActive++; 
+				subwaylinestatus[which_button]='active';
+			}
+
+		});
+
+		//define function for cooking filtered list
+
+		$('#bakebutton').on('click',function(){
+			cook();
+		});
+
+		function cook(){
+		// var selected_lines = subwaylinestatus.filter (function(line){
+		// 	return (line)
+		// });
+
 		var filtered_entrances = subwayStations.filter (function(subwayStation){
 			return ((_.contains(subwayStation.linelist, '2')) && (
-				_.contains(subwayStation.linelist, '3'))) || ((_.contains(subwayStation.linelist, 'A')) && (_.contains(subwayStation.linelist, 'C')));
+				_.contains(subwayStation.linelist, '3'))) || 
+				((_.contains(subwayStation.linelist, 'A')) && 
+				(_.contains(subwayStation.linelist, 'C')));
 			// return subwayStation.lineList.indexOf('2') != -1;
 		});
 
@@ -58,6 +112,7 @@
 		console.log(subwayStations.length);
 		console.log (filtered_entrances.length);
 
+		}
 	});
 
 

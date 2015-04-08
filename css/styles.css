@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: Helvetica;
 	font-size: 18px;
+	margin: 0;
 }
 
 h1 {
@@ -16,9 +17,138 @@ h1 {
 p {
 	color: black;
 	padding-bottom: 15px;
-	margin-top: -5px;
 }
 
 .row {
 	margin-left: 10px;
+	padding-top: 10px;
+	line-height: 23px;
+}
+
+#canvas {
+	margin-left: 18px;
+	margin-top: 50px;
+}
+
+#menu {
+	background-color: #D9CCC1;
+	width: 100%;
+	height: 280px;
+	margin-bottom: 30px;
+}
+
+#menu .button {
+	display: inline-block;
+	font-size: 22px;
+	margin-top: 15px;
+	margin-right: 15px;
+	margin-left: 25px;
+	margin-bottom: 15px;
+	padding-left: 18px;
+	padding-top: 15px;
+	background-color: #696265;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	color: white;
+}
+
+#bakebutton {
+	background-color: #696265;
+	border-radius: 15px;
+	color:white;
+	width: 200px;
+	height: 50px;
+	margin-left: 40%;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 25px;	
+}
+
+#bakebutton:hover{
+	background-color: #909797;
+}
+
+/* for hover states */
+
+#menu .button.blue:hover {
+	background-color: #2850ad
+}
+
+#menu .button.orange:hover {
+	background-color: #ff6319
+}
+
+#menu .button.yellow:hover {
+	background-color: #fccc0a
+}
+
+#menu .button.lgreen:hover {
+	background-color: #6cbe45
+}
+
+#menu .button.grey:hover {
+	background-color: #a7a9ac
+}
+
+#menu .button.brown:hover {
+	background-color: #996633
+}
+
+#menu .button.red:hover {
+	background-color: #ee352e
+}
+
+#menu .button.green:hover {
+	background-color: #00933c
+}
+
+#menu .button.purple:hover {
+	background-color: #b933ad
+}
+
+#menu .button.dgrey:hover {
+	background-color: #808183
+}
+
+/* for active states */
+
+#menu .button.blue.active {
+	background-color: #2850ad
+}
+
+#menu .button.orange.active {
+	background-color: #ff6319
+}
+
+#menu .button.yellow.active {
+	background-color: #fccc0a
+}
+
+#menu .button.lgreen.active {
+	background-color: #6cbe45
+}
+
+#menu .button.grey.active {
+	background-color: #a7a9ac
+}
+
+#menu .button.brown.active {
+	background-color: #996633
+}
+
+#menu .button.red.active {
+	background-color: #ee352e
+}
+
+#menu .button.green.active {
+	background-color: #00933c
+}
+
+#menu .button.purple.active {
+	background-color: #b933ad
+}
+
+#menu .button.dgrey.active {
+	background-color: #808183
 }
