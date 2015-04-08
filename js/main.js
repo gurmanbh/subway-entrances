@@ -24,6 +24,8 @@
 		"S":'inactive',
 		'totalActive':0
 	}
+
+	var selected_lines = [];
 	/*
 
 	url,name,line
@@ -39,6 +41,7 @@
 		// console.log(error, subwayData);
 
 	// loop that cleans our data
+
 		subwayStations.forEach(function(subwayStation){
 			var delimiter = '(';
 			var subway_station_name_parts = subwayStation.name.split(delimiter);
@@ -78,18 +81,28 @@
 				subwaylinestatus[which_button]='active';
 			}
 
-		});
+		});		
 
 		//define function for cooking filtered list
 
 		$('#bakebutton').on('click',function(){
+			selected_lines=[];
+
 			cook();
+
+			//create a list of selected lines
+
+			for (var check in subwaylinestatus){
+				if (subwaylinestatus [check]=='active'){
+					selected_lines.push(check);
+				}
+			}
+
+			console.log(selected_lines);
+
 		});
 
 		function cook(){
-		// var selected_lines = subwaylinestatus.filter (function(line){
-		// 	return (line)
-		// });
 
 		var filtered_entrances = subwayStations.filter (function(subwayStation){
 			return ((_.contains(subwayStation.linelist, '2')) && (
