@@ -10,6 +10,6 @@ $(function(){
   });
 
    function addthis(id,xyz){
-    $('#'+id).append(key);
+    $('#' + id).append(key);
   }
 });
