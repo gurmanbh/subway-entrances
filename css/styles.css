@@ -166,6 +166,10 @@ p {
 
 /* for active states */
 
+#menu .button:hover{
+	cursor: pointer;
+}
+
 #menu .button.blue.active {
 	background-color: #2850ad
 }
