@@ -285,6 +285,10 @@ p {
 	background-color: #808183
 }
 
+#menu .button:hover{
+	cursor: pointer;
+}
+
 .line[data-which-line="1"],
 .line[data-which-line="2"],
 .line[data-which-line="3"]
