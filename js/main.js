@@ -43,7 +43,7 @@
 
 	// An alternative to usind d3 would be to convert our csv to json and use jQuery's $.getJSON function.
 
-	d3.csv('data/DOITT_SUBWAY_ENTRANCE_01_13SEPT2010.csv', function(error, subwayStations){
+	d3.csv('data/subwaystations.csv', function(error, subwayStations){
 		// console.log(error, subwayData);
 
 	// loop that cleans our data
@@ -72,7 +72,7 @@
 
 		 	// $('#canvas').append("<div class = 'row'>"+subwayStation.name + ', '+subwayStation.direction + ' ' + subwayStation.linelist.join(' - ')+'</div>');
 
-			
+			subwayStation.url = 'http://maps.google.com/?saddr=current+location&daddr='+subwayStation.lat+'+'+subwayStation.longitude;
 		});
 
 		//click listener for the buttons
