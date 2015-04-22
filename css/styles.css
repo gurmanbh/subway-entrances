@@ -5,7 +5,58 @@
 	font-family: Helvetica;
 	font-size: 18px;
 	margin: 0;
+	line-height: 25px;
 }
+
+.line{
+	background-color: #808183;
+}
+/* Entrance cards */
+
+.entrance-container{
+	border: 1px solid #ccc;
+	padding: 10px;
+	background-color: #fff;
+	margin-bottom: 15px;
+	width: 350px;
+	font-size: 12px;
+	line-height: 18px;
+	height: 180px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.lines{
+	margin: 0 0 10px 0;
+	padding: 0;
+	/*margin-bottom: 5px;*/
+}
+
+.label{
+	color: #696265;
+}
+
+
+
+.lines li{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #ccc;
+	color: #000;
+	text-align: center;
+	font-size: 10px;
+	margin-right: 5px;
+	margin-bottom: 8px;
+
+}
+
+.lines li span {
+	line-height: 30px;
+}
+
+
 
 h1 {
 	color: #593C4F;
@@ -31,9 +82,31 @@ p {
         transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
 }
 
-#menu .button#express span {
+.line[data-which-line="6 Express"], .line[data-which-line="7 Express"]{
+	margin-top: 20px;
+	border-radius: 0;
+	display: inline-block;
+	vertical-align: -13px;
+	 -moz-transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+		-webkit-transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -o-transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -ms-transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        transform: scale(1) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+
+#menu .button#express span{
+	position: absolute;	
 	font-size: 22px;
-	position: absolute;
+	-moz-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+		-webkit-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -o-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -ms-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+
+.line#express[data-which-line="7 Express"] span, .line#express[data-which-line="6 Express"] span{
+	position: absolute;	
+	margin-left: -2px;
 	-moz-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
 		-webkit-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
         -o-transform: scale(1) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
@@ -72,12 +145,14 @@ p {
 	background-color: #696265;
 	height: 100px;
 	padding-top: 30px;
+	padding-left: 30px;
+	line-height: 40px;
 }
 
 #title span{
 	color: white;
 	font-size: 26px;
-	margin-left: 30px;
+	
 	font-style: italic;
 }
 
@@ -96,22 +171,26 @@ p {
 	color: black;
 }
 
-#bakebutton {
+.bottombutton {
 	background-color: #696265;
-	border-radius: 15px;
+	border-radius: 10px;
 	color:white;
-	width: 200px;
+	width: 180px;
 	height: 50px;
 	text-align: center;
 	padding-top: 13px;
 	font-size: 25px;	
-	right: 2%;
-	position: absolute;
-	top: 300px;
+	display: inline-block;
 }
 
-#bakebutton:hover{
+.bottombutton:hover{
 	background-color: #909797;
+}
+
+#bottommenu{
+	right: 2%;
+	top: 300px;
+	position: absolute;
 }
 
 /* for hover states */
@@ -208,4 +287,121 @@ p {
 
 #menu .button.dgrey.active {
 	background-color: #808183
+}
+
+#menu .button:hover{
+	cursor: pointer;
+}
+
+.line[data-which-line="1"],
+.line[data-which-line="2"],
+.line[data-which-line="3"]
+{
+	background-color: #EE352E;
+	color: #fff;
+}
+
+.line[data-which-line="A"],
+.line[data-which-line="C"],
+.line[data-which-line="E"]
+{
+	background-color: #2850AD;
+	color: #fff;
+}
+
+.line[data-which-line="4"],
+.line[data-which-line="5"],
+.line[data-which-line="6"],
+.line[data-which-line="6 Express"]{
+	background-color: #00933C;
+	color: white;
+}
+
+.line[data-which-line="B"],
+.line[data-which-line="D"],
+.line[data-which-line="F"],
+.line[data-which-line="M"]{
+	background-color: #FF6319;
+}
+
+.line[data-which-line="N"],
+.line[data-which-line="Q"],
+.line[data-which-line="R"]{
+	background-color: #FCCC0A;
+}
+
+.line[data-which-line="7"],
+.line[data-which-line="7 Express"]{
+	background-color: #b933ad;
+	color: white;
+}
+
+.line[data-which-line="G"]{
+
+}
+
+.line[data-which-line="L"]{
+	background-color: #6cbe45
+}
+
+.line[data-which-line="J"],
+.line[data-which-line="Z"]{
+	background-color: #996633;
+	color: white;
+}
+
+.line[data-which-line="S"]{
+	background-color: #808183;
+	color: white ;
+}
+
+@media (max-width: 874px){
+	#menu {
+		height: 350px;
+	}
+
+	#bottommenu{
+		top: 400px;
+	}
+
+	#title {
+		height: 140px;
+	}
+}
+
+@media (max-width: 660px){
+	#menu {
+		height: 450px;
+	}
+
+	#bottommenu{
+		top: 500px;
+	}
+
+	#title {
+		height: 140px;
+	}
+}
+
+@media (max-width: 470px){
+	#menu {
+		height: 650px;
+		padding-left: 5%;
+	}
+
+
+	#bottommenu{
+		top: 630px;
+		right: 0;
+		margin-left: 30%;
+	}
+
+	.bottombutton{
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+
+	#title {
+		height: 170px;
+	}
 }

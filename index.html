@@ -87,8 +87,13 @@
 		<div class = "button dgrey" data-which="S">
 			S
 		</div>
-		<div id = 'bakebutton'>
-			Get results
+		<div id = 'bottommenu'>
+			<div id = 'bakebutton' class='bottombutton'>
+				Get results
+			</div>
+			<div id = 'clear' class='bottombutton'>
+				Reset
+			</div>
 		</div>
 	</div>
 
@@ -96,7 +101,37 @@
 		
 
 	</div>
-	
+
+	<script id="template" type="text/jst">
+		<div class="entrance-container">
+			<ul class="lines">
+				<% linelist.forEach(function(line){ %>
+					<% if (line==/[0-9]/) { %>
+						<li class="line" data-which-line="<%= line %>">
+							<span><%= line %></span>
+						</li>
+					<% } else { %>
+						<li class="line" id ="express" data-which-line="<%= line %>">
+							<span>
+								<%= line.split(' ')[0] %>
+							</span>
+						</li>
+					<% } %>
+				<% }); %>
+			</ul>
+			<div class="direction">
+				<span class="label">Direction: </span>
+				<% if (!direction){ %>
+					Both
+				<% } else { %>
+					<%= direction %>
+				<% } %>
+			</div>
+			<div class="name"><span class="label">Name: </span><%= name %></div>
+			<div class='url'><a href= '<%= url %>' target='_blank'>Click here for directions to this station</a></div>
+		</div>
+	</script>
+
 	<script src="js/thirdparty/underscore-min.js"></script>
 	<script src="js/thirdparty/jquery-1.11.1.min.js"></script>
 	<script src="js/thirdparty/d3.v3.min.js"></script>

@@ -1,4 +1,10 @@
 (function(){
+
+
+	var templateHtml = $('#template').html();
+
+	var templateFactory = _.template(templateHtml);
+
 	var subwaylinestatus = {
 		"A":'inactive',
 		"C":'inactive',
@@ -37,7 +43,7 @@
 
 	// An alternative to usind d3 would be to convert our csv to json and use jQuery's $.getJSON function.
 
-	d3.csv('data/DOITT_SUBWAY_ENTRANCE_01_13SEPT2010.csv', function(error, subwayStations){
+	d3.csv('data/subwaystations.csv', function(error, subwayStations){
 		// console.log(error, subwayData);
 
 	// loop that cleans our data
@@ -51,6 +57,9 @@
 			if (subway_direction){
 				subway_direction = subway_direction.replace(/\)/g, '');
 				subwayStation.direction = subway_direction;
+			} else 
+			{
+				subwayStation.direction = false;
 			}
 
 			// replace the name with name minus direction
@@ -63,7 +72,7 @@
 
 		 	// $('#canvas').append("<div class = 'row'>"+subwayStation.name + ', '+subwayStation.direction + ' ' + subwayStation.linelist.join(' - ')+'</div>');
 
-			
+			subwayStation.url = 'http://maps.google.com/?saddr=current+location&daddr='+subwayStation.lat+'+'+subwayStation.longitude;
 		});
 
 		//click listener for the buttons
@@ -102,6 +111,22 @@
 
 		});
 
+		$('#clear').on('click',function(){
+			$('#canvas').html('')
+
+			//make all status inactive
+
+			for (var check in subwaylinestatus){
+				subwaylinestatus [check]='inactive';
+				}
+
+			// remove all active class from all
+
+			if ($('.button').hasClass('active')){
+				$('.button').removeClass ('active');
+			}
+		});
+
 		function cook(){
 
 			$('#canvas').html('')
@@ -120,18 +145,9 @@
 				$('#canvas').html('<div class = "none"> A station of that calibre does not exist in New York City. </div>');
 			}
 
-			filtered_entrances.forEach(function(subwayStation){
-			$('#canvas').append("<div class = 'row'>" + "<h1>"+ subwayStation.name +'</h1>' + '<p>'
-				+subwayStation.linelist.join(' - ')+'</p>'+'</div>');
-			// $('#canvas').append("<div class = 'row'>" + "<h1>"+ subwayStation.name +'</h1>' + '<p>'+ 
-			// 	for (i=0, i<subwayStation.linelist.length, i++)
-
-			// 	+'</p>'+'</div>');
-			
-		});
-
-		// console.log(subwayStations.length);
-		// console.log (filtered_entrances.length);
+			filtered_entrances.forEach(function(entrance){
+				$('#canvas').append( templateFactory(entrance) );
+			});
 
 		}
 
