@@ -135,8 +135,6 @@
 
 			$('#canvas').html('')
 
-			var filtered_entrances;
-
 			var filtered_entrances=subwayStations.filter (function(subwayStation){
 					return _.contains(subwayStation.linelist, selected_lines[0]);
 				});
