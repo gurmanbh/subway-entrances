@@ -137,15 +137,15 @@
 
 			var filtered_entrances;
 
-			// var filtered_entrances=subwayStations.filter (function(subwayStation){
-			// 		return _.contains(subwayStation.linelist, selected_lines[0]);
-			// 	});
+			var filtered_entrances=subwayStations.filter (function(subwayStation){
+					return _.contains(subwayStation.linelist, selected_lines[0]);
+				});
 
-			// for (var i=1; i < selected_lines.length; i++){
-			// 	filtered_entrances = filtered_entrances.filter (function(subwayStation){
-			// 		return _.contains(subwayStation.linelist, selected_lines[i]);
-			// 	});
-			// }
+			for (var i=1; i < selected_lines.length; i++){
+				filtered_entrances = filtered_entrances.filter (function(subwayStation){
+					return _.contains(subwayStation.linelist, selected_lines[i]);
+				});
+			}
 
 			if (filtered_entrances.length==0){
 				$('#canvas').html('<div class = "none"> A station of that calibre does not exist in New York City. </div>');
