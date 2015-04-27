@@ -337,11 +337,13 @@ p {
 }
 
 .line[data-which-line="G"]{
+	background-color: #6cbe45
+
 
 }
 
 .line[data-which-line="L"]{
-	background-color: #6cbe45
+	background-color:#A7A9AC
 }
 
 .line[data-which-line="J"],
